@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TestTask1</string>
+    <string name="login_title_hint">Login</string>
+    <string name="password_title_hint">Password</string>
+    <string name="login_button">Login in</string>
+    <string name="welcome_logo_hint">Welcome</string>
+</resources>
