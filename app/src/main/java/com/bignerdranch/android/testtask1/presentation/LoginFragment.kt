@@ -1,5 +1,6 @@
 package com.bignerdranch.android.testtask1.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.bignerdranch.android.testtask1.R
+import com.bignerdranch.android.testtask1.databinding.LoginFragmentBinding
 
 import com.bignerdranch.android.testtask1.domain.User
 
@@ -16,28 +19,35 @@ import com.bignerdranch.android.testtask1.domain.User
 
 class LoginFragment: Fragment() {
     private lateinit var user: User
+    private lateinit var binding: LoginFragmentBinding
 
+    @SuppressLint("ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.login_fragment, container, false)
+        binding = LoginFragmentBinding.inflate(layoutInflater, container, false)
 
-        val loginButton = view.findViewById<Button>(R.id.login_button)
-        val loginEditText = view.findViewById<EditText>(R.id.login_title)
-        val passwordEditText = view.findViewById<EditText>(R.id.password_title)
+        val loginButton = binding.loginButton
+        val loginEditText = binding.loginTitle
+        val passwordEditText = binding.passwordTitle
+        val regButton = binding.loginButtonReg
+
+        regButton.setOnClickListener{
+            findNavController().navigate(R.id.regFragment)
+        }
 
         loginButton.setOnClickListener {
             val login = loginEditText.text.toString()
             val password = passwordEditText.text.toString()
             if (login == user.login && password == user.password) {
-                (activity as MainActivity).onLoginSuccess(login)
+                findNavController().navigate(R.id.homeFragment)
             } else {
                 Toast.makeText(activity, "Incorrect login or password", Toast.LENGTH_SHORT).show()
             }
         }
 
-        return view
+        return binding.root
     }
 
     companion object {

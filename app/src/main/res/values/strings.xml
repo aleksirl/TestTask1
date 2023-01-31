@@ -4,4 +4,6 @@
     <string name="password_title_hint">Password</string>
     <string name="login_button">Login in</string>
     <string name="welcome_logo_hint">Welcome</string>
+    <string name="reg_button">Sing up</string>
+    <string name="reg_logo">Sign up</string>
 </resources>
