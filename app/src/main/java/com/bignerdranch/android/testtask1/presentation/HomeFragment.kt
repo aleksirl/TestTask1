@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.bignerdranch.android.testtask1.R
 import com.bignerdranch.android.testtask1.databinding.HomeFragmentBinding
 
 class HomeFragment: Fragment () {

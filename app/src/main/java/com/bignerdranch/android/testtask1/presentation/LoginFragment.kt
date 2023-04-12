@@ -33,7 +33,7 @@ class LoginFragment: Fragment() {
         val passwordEditText = binding.passwordTitle
         val regButton = binding.loginButtonReg
 
-        val user = User("user","password")
+        //val user = User("user","password")
 
 
         regButton.setOnClickListener{
